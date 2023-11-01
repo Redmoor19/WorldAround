@@ -8,7 +8,9 @@ import {
   ReactElement,
 } from "react";
 import { createPortal } from "react-dom";
-import useOutsideClick from "../hooks/useOutsideClick";
+import { RxCross2 } from "react-icons/rx";
+
+import useOutsideClick from "../../hooks/useOutsideClick";
 
 type ModalContextType = {
   open: string;
@@ -65,8 +67,14 @@ function ModalDisplay({
     <div className="fixed w-screen h-screen top-0 left-0 bg-gray-300 bg-opacity-50 backdrop-blur-sm transition-all duration-200 z-40">
       <div
         ref={ref}
-        className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-slate-50 px-6 py-4 rounded-xl transition-all duration-200"
+        className="fixed top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] bg-slate-50 px-14 py-12 rounded-xl transition-all duration-200"
       >
+        <div
+          onClick={closeModal}
+          className="absolute top-3 right-3 cursor-pointer"
+        >
+          <RxCross2 size={30} className="text-gray-700" />
+        </div>
         {cloneElement(children as ReactElement, { onClose: closeModal })}
       </div>
     </div>,

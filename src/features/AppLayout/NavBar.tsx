@@ -1,5 +1,7 @@
 import { BsFillPersonFill } from "react-icons/bs";
 import NavLink from "./NavLink";
+import { MdDashboard } from "react-icons/md";
+import { PiUsersThreeFill } from "react-icons/pi";
 
 function NavBar() {
   const navLinks = [
@@ -9,14 +11,14 @@ function NavBar() {
       icon: <BsFillPersonFill />,
     },
     {
-      title: "Profile",
-      src: "/dds",
-      icon: <BsFillPersonFill />,
+      title: "Dashboard",
+      src: "/dashboard",
+      icon: <MdDashboard />,
     },
     {
-      title: "Profile",
-      src: "/sdf",
-      icon: <BsFillPersonFill />,
+      title: "Travelers",
+      src: "/travelers",
+      icon: <PiUsersThreeFill />,
     },
   ];
 

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 function Login() {
-  const { push } = useRouter();
+  const { replace } = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -24,7 +24,7 @@ function Login() {
       return;
     }
 
-    push("/profile");
+    replace("/profile");
   }
 
   return (

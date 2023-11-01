@@ -42,6 +42,7 @@ const authOptions: AuthOptions = {
           return {
             ...user,
             id: user._id,
+            image: user.avatarUrl,
           };
         } catch (error) {
           if (typeof error === "string") throw new Error(error);
@@ -50,12 +51,18 @@ const authOptions: AuthOptions = {
     }),
   ],
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, trigger, session, user }) {
+      if (trigger === "update") {
+        token.name = session.name;
+        token.picture = session.image;
+      }
+
       if (user) {
         return {
           ...token,
           id: user.id,
           name: user.name,
+          picture: user.image,
         };
       }
       return token;
@@ -67,6 +74,7 @@ const authOptions: AuthOptions = {
           id: token.id,
           email: token.email,
           name: token.name,
+          image: token.picture,
         },
       };
     },

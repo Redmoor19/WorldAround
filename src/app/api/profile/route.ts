@@ -9,15 +9,22 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
 
   const body = await request.json();
+  if (token.id !== body.id)
+    return NextResponse.json({ message: "Unpermited action" }, { status: 401 });
 
-  dbConnect();
+  try {
+    dbConnect();
+    delete body._id;
 
-  const updatedUser = await User.findOneAndUpdate(
-    { _id: body._id },
-    {
-      name: "Inna",
-    }
-  );
+    await User.findOneAndUpdate(
+      { _id: body.id },
+      {
+        ...body,
+      }
+    );
 
-  return NextResponse.json("It's you");
+    return NextResponse.json("It's you");
+  } catch (e) {
+    return NextResponse.json(e);
+  }
 }

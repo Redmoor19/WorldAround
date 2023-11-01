@@ -13,7 +13,7 @@ type LinkProps = {
 
 function NavLink({ title, src, icon }: LinkProps) {
   const pathname = usePathname();
-  const isActive = pathname === src;
+  const isActive = pathname.includes(src);
 
   return (
     <Link

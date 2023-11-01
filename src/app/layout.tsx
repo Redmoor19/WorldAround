@@ -1,19 +1,29 @@
-import { getServerSession } from "next-auth";
 import "../styles/globals.css";
 import Provider from "../providers/SessionProvider";
-import authOptions from "./api/auth/[...nextauth]/authOptions";
+import ToastProvider from "../providers/ToastProvider";
+import { serverSession } from "../utils/getServerSession";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const session = getServerSession(authOptions);
+  const session = await serverSession();
   return (
     <html lang="en">
-      <link rel="icon" href="/logo.png" />
+      <head>
+        <link rel="icon" href="/logo.png" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@400;500&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="min-h-screen">
-        <Provider session={session}>{children}</Provider>
+        <Provider session={session}>
+          <ToastProvider>{children}</ToastProvider>
+        </Provider>
       </body>
     </html>
   );

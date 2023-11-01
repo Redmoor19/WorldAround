@@ -1,16 +1,7 @@
 import { redirect } from "next/navigation";
 import { serverSession } from "@/src/utils/getServerSession";
-
-import UserLogout from "@/src/Components/UserLogout";
-import SideBar from "@/src/Components/SideBar";
-
-export async function generateMetadata() {
-  const session = await serverSession();
-
-  return {
-    title: session?.user?.name,
-  };
-}
+import SideBar from "@/src/features/AppLayout/SideBar";
+import UserLogout from "@/src/features/AppLayout/UserLogout";
 
 async function layout({ children }: { children: React.ReactNode }) {
   const session = await serverSession();
@@ -22,7 +13,7 @@ async function layout({ children }: { children: React.ReactNode }) {
     <main className="h-full grid grid-cols-[20rem_auto] relative">
       <SideBar />
       <main>
-        <UserLogout session={session} />
+        <UserLogout />
         {children}
       </main>
     </main>

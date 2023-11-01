@@ -11,6 +11,29 @@
   @apply bg-slate-100 ring-2 ring-blue-800 rounded-lg px-3 py-1 appearance-none text-slate-900 focus:outline-none font-medium focus:ring-4 focus:ring-blue-500;
 }
 
+.input {
+  @apply bg-slate-100 ring-1 ring-gray-600 rounded-lg px-3 py-1 appearance-none text-slate-900 focus:outline-none font-medium focus:ring-2 focus:ring-blue-500;
+}
+
+.profile_container {
+  @apply w-[1200px] mx-auto;
+}
+
+@layer components {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+* {
+  transition: all ease-in-out 0.15s;
+}
+
 html {
   height: 100dvh;
 }
@@ -32,4 +55,12 @@ h6,
 p {
   margin: 0;
   padding: 0;
+}
+
+.stop_image [data-ut-element="allowed-content"] {
+  color: white;
+}
+
+[data-ut-element="button"] {
+  background-color: #3b82f6 !important;
 }
