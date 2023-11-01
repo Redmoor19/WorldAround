@@ -25,7 +25,7 @@ function TravelersItem({ user }: TravelersItemProps) {
         alt={`${user.name} avatar`}
         width={50}
         height={50}
-        className="rounded-full"
+        className="rounded-full w-[50xp] h-[50px] object-cover"
       />
       <h3>{name}</h3>
       <p>

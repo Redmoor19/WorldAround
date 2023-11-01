@@ -41,7 +41,7 @@ function UserInfo({ user, isUser }: UserInfoProps) {
           src={user.avatarUrl ? user.avatarUrl : "/default-avatar.jpg"}
           width={200}
           height={200}
-          className="object-cover rounded-full max-h-[200px] max-w-[200px]"
+          className="object-cover rounded-full h-[200px] w-[200px]"
           alt="avatar"
         />
         <h2 className="font-bold color-black mt-2 text-2xl">{user.name}</h2>
