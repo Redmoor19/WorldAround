@@ -8,6 +8,7 @@ export interface IUser extends mongoose.Document {
   country?: string;
   city?: string;
   name: string;
+  subscriptions?: string[];
 }
 
 const UserSchema = new mongoose.Schema<IUser>({
@@ -37,6 +38,10 @@ const UserSchema = new mongoose.Schema<IUser>({
   },
   country: {
     type: String,
+    required: false,
+  },
+  subscriptions: {
+    type: Array,
     required: false,
   },
 });

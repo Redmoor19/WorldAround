@@ -27,13 +27,15 @@ function Travelers({ users }: TravelersProps) {
   });
 
   return (
-    <div className="w-3/4 mx-auto pt-20">
-      <SearchBar query={query} handleSearch={handleSearch} />
-      {!users ? (
-        "No users were found"
-      ) : (
-        <TravelersList users={filteredUsers!} />
-      )}
+    <div className="w-full h-full bg-slate-400">
+      <div className="w-3/4 mx-auto pt-20">
+        <SearchBar query={query} handleSearch={handleSearch} />
+        {!users ? (
+          "No users were found"
+        ) : (
+          <TravelersList users={filteredUsers!} />
+        )}
+      </div>
     </div>
   );
 }

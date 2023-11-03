@@ -16,7 +16,7 @@ function Button({
   let typeStyle;
   switch (type) {
     case "primary":
-      typeStyle = "bg-blue-500 text-white shadow-blue-600";
+      typeStyle = "bg-blue-500 text-white shadow-blue-600 ring-1 ring-blue-500";
       break;
     case "secondary":
       typeStyle =

@@ -149,7 +149,7 @@ type ViewItemProps = StopType & {
 function ViewItem({ id, city, date, selected, selectStop }: ViewItemProps) {
   const dateToDate = new Date(date);
   const day = dateToDate.getDate();
-  const month = dateToDate.getMonth() + 1;
+  const month = dateToDate.getMonth();
   const isSelected = id === selected;
   return (
     <li
